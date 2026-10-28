@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17324d">
+  <meta name="description" content="Panel administrativo de Apex Sports. Interfaz local de demostración, sin conexión a servicios externos.">
+  <title>Apex Sports · Panel administrativo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="#resumen" aria-label="Apex Sports, ir al resumen">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-copy"><strong>APEX<span>SPORTS</span></strong><small>CONTROL CENTER</small></span>
+      </a>
+      <div class="workspace-label">OPERACIÓN</div>
+      <nav class="primary-nav" id="primary-nav">
+        <button class="nav-item active" data-view="resumen"><span class="nav-icon" aria-hidden="true">◫</span>Resumen</button>
+        <div class="nav-section-label">TIENDA</div>
+        <button class="nav-item" data-view="productos"><span class="nav-icon" aria-hidden="true">◈</span>Productos</button>
+        <button class="nav-item" data-view="inventario"><span class="nav-icon" aria-hidden="true">▤</span>Inventario</button>
+        <button class="nav-item" data-view="compras"><span class="nav-icon" aria-hidden="true">↙</span>Compras</button>
+        <button class="nav-item" data-view="proveedores"><span class="nav-icon" aria-hidden="true">♧</span>Proveedores</button>
+        <button class="nav-item" data-view="recepciones"><span class="nav-icon" aria-hidden="true">⇣</span>Recepciones <span class="nav-count">3</span></button>
+        <button class="nav-item" data-view="ventas"><span class="nav-icon" aria-hidden="true">↗</span>Ventas</button>
+        <button class="nav-item" data-view="facturas"><span class="nav-icon" aria-hidden="true">▧</span>Facturas</button>
+        <button class="nav-item" data-view="entregas"><span class="nav-icon" aria-hidden="true">⌁</span>Entregas</button>
+        <div class="nav-section-label">ORGANIZACIÓN</div>
+        <button class="nav-item" data-view="clientes"><span class="nav-icon" aria-hidden="true">♙</span>Clientes</button>
+        <button class="nav-item" data-view="usuarios"><span class="nav-icon" aria-hidden="true">♧</span>Usuarios</button>
+        <button class="nav-item" data-view="roles"><span class="nav-icon" aria-hidden="true">◇</span>Roles y permisos</button>
+        <button class="nav-item" data-view="auditoria"><span class="nav-icon" aria-hidden="true">≋</span>Auditoría</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="demo-card"><span class="demo-pulse" aria-hidden="true"></span><div><strong>Modo demostración</strong><small>Datos locales · no sincronizados</small></div></div>
+        <button class="profile-button" type="button" aria-label="Perfil de Valentina Ruiz, administradora">
+          <span class="avatar avatar-lime">VR</span><span class="profile-copy"><strong>Valentina Ruiz</strong><small>Administradora</small></span><span class="profile-more" aria-hidden="true">···</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="sidebar">☰</button>
+        <div class="breadcrumbs"><span>Apex Sports</span><span aria-hidden="true">/</span><strong id="breadcrumb-current">Resumen</strong></div>
+        <div class="topbar-actions">
+          <span class="local-indicator"><span aria-hidden="true"></span> Entorno local</span>
+          <button class="icon-button notification-button" type="button" aria-label="Notificaciones, 3 pendientes" id="notifications-button">♧<i></i></button>
+          <span class="topbar-divider"></span>
+          <span class="topbar-date" id="today-label"></span>
+        </div>
+      </header>
+      <main id="main-content" tabindex="-1">
+        <div class="demo-banner"><span class="banner-icon" aria-hidden="true">i</span><span><strong>Vista de demostración.</strong> La información es ficticia, solo vive en esta sesión y no se conecta a una base de datos.</span><button type="button" class="banner-close" aria-label="Cerrar aviso">×</button></div>
+        <section id="view-root" aria-live="polite" aria-busy="false"></section>
+      </main>
+      <footer class="app-footer"><span>APEX SPORTS <span class="footer-dot">·</span> PANEL ADMINISTRATIVO</span><span>Prototipo de interfaz <span class="footer-dot">·</span> Sin conexión a API</span></footer>
+    </div>
+  </div>
+  <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+  <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
+    <form method="dialog" class="dialog-shell" id="dialog-form">
+      <div class="dialog-heading"><div><p class="eyebrow" id="dialog-eyebrow">ACCIÓN LOCAL</p><h2 id="dialog-title">Nuevo registro</h2></div><button class="icon-button dialog-close" value="cancel" aria-label="Cerrar ventana">×</button></div>
+      <div class="dialog-content" id="dialog-content"></div>
+      <div class="dialog-actions"><button class="button button-quiet" value="cancel">Cancelar</button><button class="button button-primary" id="dialog-submit" value="default">Guardar registro</button></div>
+      <p class="dialog-note">Los cambios son demostrativos y no se guardan ni se envían a ningún servicio.</p>
+    </form>
+  </dialog>
+</body>
+</html>
